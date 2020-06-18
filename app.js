@@ -18,7 +18,7 @@ app.use('/incident', incidentRoutes);
 app.use('/signUp', signUpRoutes);
 app.use(cors());
 
-mongoose.connect('mongodb://18.223.114.221/Rest', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, () => {
+mongoose.connect('mongodb://18.223.114.221/OncallTrackerDB', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, () => {
     console.log("connected to DB");
 });
 
