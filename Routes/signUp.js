@@ -12,8 +12,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: "meerassiet@gmail.com",
-        pass: "ihotrqdozcsbkvrt"
+        user: "OncallTrackerMphasis@gmail.com",
+        pass: "rfzewunscitdmakv"
     }
 });
 
@@ -83,9 +83,9 @@ router.post('/generateOTP', async(req, res) => {
                 passwordResetToken.find({ _userId: user._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
                 let mailOptions = {
                     to: user.email,
-                    from: 'Meera',
-                    subject: 'Oncall Tracker Registration- Verification Token',
-                    text: 'Hello ' + user.firstname + '\nYou are receiving this because you (or someone else) have requested to register for Mphasis Oncall Tracker.\n\n' +
+                    from: 'Oncall Tracker Mphasis',
+                    subject: 'Oncall Tracker Registration- Token Verification',
+                    text: 'Hello ' + user.firstname + ',\n\nYou are receiving this because you (or someone else) have requested to register for Mphasis Oncall Tracker.\n\n' +
                         'Please use the below token to complete the registration process:\n\n' +
                         resettoken.resettoken + '\n\n' +
                         'Please ignore this email if you did not request this.\n'
@@ -182,9 +182,9 @@ router.post('/resetPassword', async(req, res) => {
                 passwordResetToken.find({ _userId: user._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
                 let mailOptions = {
                     to: user.email,
-                    from: 'Meera',
+                    from: 'Oncall Tracker Mphasis',
                     subject: 'Oncall Tracker Password Reset',
-                    text: 'Hello ' + user.firstname + '\nYou are receiving this because you (or someone else) have requested the reset of the password for your Mphasis Oncall Tracker account.\n\n' +
+                    text: 'Hello ' + user.firstname + ',\n\nYou are receiving this because you (or someone else) have requested the reset of the password for your Mphasis Oncall Tracker account.\n\n' +
                         'Please use the below token to reset your password:\n\n' +
                         resettoken.resettoken + '\n\n' +
                         'If you did not request this, please ignore this email and your password will remain unchanged.\n'

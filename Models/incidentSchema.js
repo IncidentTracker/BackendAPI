@@ -19,4 +19,5 @@ var callTrackerSchema = mongooseOnCall.Schema([{
     LastModifiedDate: Date
 }]);
 
+callTrackerSchema.index({ '$**': 'text' });
 module.exports = mongooseOnCall.model('Oncall', callTrackerSchema);
