@@ -8,7 +8,7 @@ loginRoute.use(cors());
 
 // Validate the username and password while logging in
 loginRoute.post('/', async(req, res) => {
-    const user = await loginDetails.findOne({ email: req.body.email });
+    const user = await loginDetails.findOne({ email: { '$regex': req.body.email, $options: 'i' } });
     try {
         if (user) {
             if (user.password == req.body.password) {
