@@ -17,8 +17,12 @@ app.use('/login', loginRoutes);
 app.use('/incident', incidentRoutes);
 app.use('/signUp', signUpRoutes);
 app.use(cors());
-mongoose.connect('mongodb://18.223.114.221/OncallTrackerDB', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, () => {
-    console.log("connected to DB");
+
+mongoose.connect('mongodb://OnCallTracker:Admin123@18.223.114.221:27017/OncallTrackerDB?authSource=admin', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false }, (err) => {
+    if (err)
+        console.log(err);
+    else
+        console.log("connected to DB");
 });
 
 //LISTENING TO THE SERVER
